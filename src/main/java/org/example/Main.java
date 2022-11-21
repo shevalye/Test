@@ -94,6 +94,6 @@ Lilac-Cream Tortie 0.062500000
 * */
 public class Main {
     public static void main(String[] args) {
-        Cats1.kittenColors("Lilac-Cream Tortie","Blue");
+        Cats3.kittenColors("Lilac-Cream Tortie","Blue");
     }
 }

@@ -47,7 +47,7 @@ public class Cats {
         //bbD-Oo: Chocolate-Red Tortie
         colorGenesF.put("Chocolate-Red Tortie",new ArrayList<>(Arrays.asList("bbDdOo", "bbDDOo","bbdDOo","bbDdoO", "bbDDoO","bbdDoO")));
         //bbddOo: Lilac-Cream Tortie
-        colorGenesF.put("Lilac-Cream Tortie",new ArrayList<>(Arrays.asList("bbddOo", "bbddOo", "bbddoO", "bbddoO")));
+        colorGenesF.put("Lilac-Cream Tortie",new ArrayList<>(Arrays.asList("bbddOo", "bbddoO")));
 
         HashMap<String,String> femaleColors = new HashMap<>();
         for(Map.Entry<String,ArrayList<String>> entry: colorGenesF.entrySet()){
@@ -83,22 +83,22 @@ public class Cats {
                     String color = maleColors.get(s + mother.charAt(mother.length()-1));
                     colorProbability.put(color,colorProbability.get(color)
                             .add(new BigDecimal
-                                    ("1.0").divide(new BigDecimal(temp.size()*2*combo*2),20, RoundingMode.HALF_UP)));
+                                    ("1.0").divide(new BigDecimal(temp.size()*4*combo),40, RoundingMode.HALF_UP)));
                     color = maleColors.get(s + mother.charAt(mother.length()-2));
                     colorProbability.put(color,colorProbability.get(color)
                             .add(new BigDecimal
-                                    ("1.0").divide(new BigDecimal(temp.size()*2*combo*2),20, RoundingMode.HALF_UP)));
+                                    ("1.0").divide(new BigDecimal(temp.size()*4*combo),40, RoundingMode.HALF_UP)));
 
 
                     color = femaleColors.get(s + father.charAt(father.length()-1) + mother.charAt(mother.length()-1));
                     colorProbability.put(color,colorProbability.get(color)
                             .add(new BigDecimal
-                                    ("1.0").divide(new BigDecimal(temp.size()*4*combo),20, RoundingMode.HALF_UP)));
+                                    ("1.0").divide(new BigDecimal(temp.size()*4*combo),40, RoundingMode.HALF_UP)));
 
                     color = femaleColors.get(s + father.charAt(father.length()-1) + mother.charAt(mother.length()-2));
                     colorProbability.put(color,colorProbability.get(color)
                             .add(new BigDecimal
-                                    ("1.0").divide(new BigDecimal(temp.size()*4*combo),20, RoundingMode.HALF_UP)));
+                                    ("1.0").divide(new BigDecimal(temp.size()*4*combo),40, RoundingMode.HALF_UP)));
 
 
                 }
