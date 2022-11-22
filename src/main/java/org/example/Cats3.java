@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -103,12 +104,38 @@ public class Cats3 {
             }
 
         }
-        for(String key : colorProbability.keySet()){
+        MyComparator comparator = new MyComparator(colorProbability);
+        Map<String, Integer> newMap = new TreeMap<String, Integer>(comparator);
+        newMap.putAll(colorProbability);
+
+        for(String key : newMap.keySet()){
             System.out.println(key);
             System.out.println(colorProbability.get(key)/(combo*t.size()*4.0));
         }
 
+        };
+    static class MyComparator implements Comparator<Object> {
+
+        Map<String, Integer> map;
+
+        public MyComparator(Map<String, Integer> map) {
+            this.map = map;
+        }
+
+        public int compare(Object o1, Object o2) {
+
+            if ((map.get(o2)).compareTo(
+                    map.get(o1))==0){
+                return ((String) o1).compareTo((String) o2);
+            }
+            else {
+                return (( map.get(o2)).compareTo(
+                        map.get(o1)));
+            }
+        }
     }
+
+
     public static ArrayList<String> combineGenes(String father, String mother){
         ArrayList<String> temp = new ArrayList<>();
         temp.add(father.charAt(0)+""+ mother.charAt(0));
